@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Eric's Website</title>
+         <style>
+            body {
+                background: rgb(236, 242, 249);
+                background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_the_Soviet_Union.svg/255px-Flag_of_the_Soviet_Union.svg.png);
+                color: rgb(100, 100, 100);
+                padding: 11px;
+                font-family: calibri;
+            }
+            header {
+                font-size: 2em;
+                font-weight: bold;
+            }
+            #all-contents {
+                max-width: 900px;
+                margin: auto;
+            }
+    
+            /* navigation menu */
+            nav {
+                background: rgb(51, 102, 153);
+                margin: 0 auto;
+                margin-bottom: 13px;
+                display: flex;
+                padding: 12px;
+                border-radius: 10px;
+            }
+            nav header {
+                display: flex;
+                align-items: center;
+                color: rgb(255, 255, 255);
+                font-family: arial;
+                font-size: 1.7em;
+                flex: 1;
+            }
+            nav ul {
+                list-style-image: none;
+                font-size: 1.25em;
+            }
+            nav li {
+                display: inline-block;
+                padding: 0 10px;
+            }
+            nav a {
+                font-family: arial;
+                text-decoration: underline;
+                color: #fff;
+            }
+    
+            /* main container area beneath menu */
+            main {
+                background: rgb(255, 255, 255);
+                color: rgb(90, 90, 90);
+                display: flex;
+                border-radius: 15px;
+            }
+            .sidebar {
+                margin-right: 25px;
+                padding: 10px;
+            }
+            .sidebar img {
+                width: 250px;
+                margin-top: 30px;
+                border-style: solid;
+                border-color: rgb(90, 90, 90);
+            }
+            .content {
+                flex: 1;
+                padding: 15px;
+            }
+            .interests header {
+                font-size: 1.6em;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="all-contents">
+            <nav>
+                <header>Eric's Website</header>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                </ul>
+            </nav>
+            
+            <main>
+                <div class="sidebar">
+                    <img src="http://yesofcorsa.com/wp-content/uploads/2016/08/vladimir_putin_wallpaper_2.jpg" height="155" width="300">
+                </div>
+                
+                <div class="content">
+                    <header>Eric Patrick</header>
+                    <p>Student at Belle Chasse High School</p>
+                    <section class="interests">
+                        <header>Interests</header>
+                        <ul>
+                            <li>Food</li>
+                            <li>Music</li>
+                            <li>Capitalism</li>
+                        </ul>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
