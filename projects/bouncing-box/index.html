@@ -11,16 +11,19 @@
 	<style>
 		/* TODO 1 */
 		.box {
-			width: 70px;
-			height: 70px;
-			background-color: teal;
+			width: 200px;
+			height: 200px;
+			background-image: url("https://static.thenounproject.com/png/16697-200.png");
 			font-size: 300%;
 			text-align: center;
 			display: block;
 			position: absolute;
-			top: 100px;
+			top: 200px;
 			left: 0px;
 		}
+		
+		.board {
+			background-image: url("http://digitalimagemakerworld.com/images/landscape-picture/36271829-landscape-picture.jpg");
 	</style>
 
 </head>
@@ -31,7 +34,7 @@
 	<!-- BEGIN JAVASCRIPT -->
 	<script>
 		(function(){
-			'use strict'
+			'use strict';
 			/* global jQuery */
 
 			// jQuery stuff setup for you
@@ -42,7 +45,7 @@
 			var position;
 			var points;
 			var speed;
-			var direction
+			var direction;
 			
 			position = 0;
 			points = 0;
@@ -55,11 +58,23 @@
 			function update() {
 				// TODO 3 / 6 / 7 / 8
 				
-			position += speed;
-			console.log("new position: " + position);
-			box.css('left', position);
-
-			}
+		position += speed * direction;    // increment position by speed on every update
+    console.log("new position: " + position);
+    
+    if(position > boardWidth) {
+        console.log("Right Wall Hit");
+        direction = -1;
+        console.log(direction);
+    }   
+        if(position < 0) {
+        	console.log("Left Wall Hit");
+        	direction = 1;
+        	console.log(direction);
+        }
+    
+    
+    box.css('left', position);      // set the 'left' CSS property of the box to the new value of position
+		}
 
 
 			
@@ -67,6 +82,7 @@
 				// TODO 4 / 5
 			points += 1;
 			box.text(points);
+			
 			position = 0;
 			speed += 3;
 			}
@@ -74,7 +90,7 @@
 
 
 			//this executes the update function code every 50 milliseconds
-			setInterval(update, 50);
+			setInterval(update, 33);
 			// this executes the handleBoxClick function code every time the box is clicked on
 			box.on('click', handleBoxClick);
 		})();
