@@ -27,6 +27,9 @@ var init = function (window) {
         // TODO 2 : Create a function that draws a circle  //
         var drawCircle = function() {
             circle = draw.randomCircleInArea(canvas, true, true, '#999', 2);
+            physikz.addRandomVelocity(circle, canvas);
+            view.addChild(circle);
+            circles.push(circle);
             
         }
         
@@ -35,6 +38,9 @@ var init = function (window) {
 
 
         // TODO 7 : Create a Loop to call drawCircle 100 times
+        for (var counter = 0; counter < 200; counter++) {
+            drawCircle();
+        }
 
     
         view.addChild(fps);
@@ -48,30 +54,33 @@ var init = function (window) {
                 circle.x = 0;
             } 
             // TODO 5a) if the circle has gone past of the LEFT side of the screen then place it on the RIGHT
-            else if ( / * Fill me in! * / ) {
-                
+            else if (circle.x < 0 ) { 
+                circle.x = canvas.width;
             } 
 
             // TODO 5b) if the circle has gone past of the TOP side of the screen then place it on the BOTTOM
-            if ( / * Fill me in! * / ) {
-                
+            if ( circle.y < 0) {
+                circle.y = canvas.height;
             }
             // TODO 5c) if the circle has gone past of the BOTTOM side of the screen then place it OFF-SCREEN TOP
-            else if ( / * Fill me in! * / ) {
-            
+            else if ( circle.y > canvas.height ) {
+                circle.y = 0;
             }
-            // YOUR TODO 5 CODE ENDS HERE //////////////////////////
-        }
+            // YOUR TODO 5 CODE ENDS HERE ////////////////////////// 
+        };
     
         function update() {
             // TODO 4 : Update the circle's position //
-
+ 
             
             // TODO 5 : Call game.checkCirclePosition on your circles.
-           
+    
 
             // TODO 8 : Iterate over the array
-           
+          for (var i = 0; i < circles.length; i++) {
+              physikz.updatePosition(circles[i]);
+               game.checkCirclePosition(circles[i]);
+          }
 
         }
         
@@ -85,7 +94,7 @@ var init = function (window) {
         game.update = update;
         
         app.addUpdateable(window.opspark.game);
-    }
+    };
 };
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

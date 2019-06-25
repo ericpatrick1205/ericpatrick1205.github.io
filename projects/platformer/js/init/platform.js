@@ -36,7 +36,7 @@
 
         // example:
         platform.create(790, 580, .5, 1);           //bigger is lower
-        platform.create(460, 520, .25);
+        platform.create(460, 520, .3);
         platform.create(120, 460, .25,);
         platform.create(119, 77, .1, 12);
         platform.create(820, 440, .25);
