@@ -19,7 +19,7 @@
         
         function render() {
             ground.removeAllChildren();
-            ground.addChild(draw.rect(canvas.width, 10, '#D2B48C'));
+            ground.addChild(draw.rect(canvas.width, 10, '#D2B48C'));   //original value for ground height is 10//
         }
         
         function resize(argument) {

@@ -18,16 +18,22 @@ var background = function (window) {
 
         // container which will be returned
         var background;
-        var coralbush2;
-        var buildings = [];
-        var building;
+        //var building;
+        var l1;
+        var l2;        
+        var l3;
+        var ship;
+        var divers;
+        //var buildings = [];
+        
+   
   
         
         // ANIMATION VARIABLES HERE:
         
       
         var ocean;
-        var boat;
+        //var boat;
         
         // add objects for display inb ackground
         // called at the start of game and whenever the page is resized
@@ -41,8 +47,13 @@ var background = function (window) {
 
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
-            var backgroundFill = draw.rect(canvasWidth, groundY,'skyBlue');
+            var backgroundFill = draw.rect(canvasWidth, groundY,'darkBlue');
             background.addChild(backgroundFill);
+            
+            //var groundFill = draw.bitmap('img/sand.png');
+            //background.addChild(groundFill);
+            //groundFill.y = groundY;
+            //groundFill.x = 0;
             
             ocean = draw.bitmap('img/ocean.png');
             ocean.x = 0;
@@ -55,30 +66,51 @@ var background = function (window) {
             
         
             // TODO: 3 - Add a moon and starfield
-            // boat = draw.bitmap('img/ship2.png');
-            //background.addChild(boat);
-            //boat.x = 600;
-            //boat.y = 120;
+            ship = draw.bitmap('img/ship.png');
+            background.addChild(ship);
+            ship.x = 570;
+            ship.y = groundY - 420;
+            
+            divers = draw.bitmap('img/divers.png');
+            background.addChild(divers);
+            divers.x = 90;
+            divers.y= groundY -400;
+            
+            
+        
             
             
             
             // TODO: 5 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            var buildingHeight = 220;
-            var building;
-            for (var i = 0; i < 7; ++i){
-                building = draw.rect(75, buildingHeight, 'gray', 'white', 1);
-                building.x = 900 * i;
-                building.y = groundY-buildingHeight;
-                background.addChild(building);
-                buildings.push(building);
-            }
+            
+            //for (var i = 0; i < buildings.length; ++i){
+                //building = draw.bitmap('img/building.png');
+               // building.x = canvasWidth;
+               // building.y = groundY -950;
+               // background.addChild(building);
+               // buildings.push(building);
+            //}
+            
+            
             
             
             // TODO 4: Part 1 - Add a tree
-            coralbush2 = draw.bitmap('img/coralbush2.png');
-            coralbush2.x = 650;
-            coralbush2.y = groundY - 105;
-            background.addChild(coralbush2);
+            
+            l3 = draw.bitmap('img/l3.png');
+            l3.x =0;
+            l3.y = groundY -440;
+            background.addChild(l3);
+            
+            l2 = draw.bitmap('img/l2.png');
+            l2.x = 0;
+            l2.y = groundY -440;
+            background.addChild(l2);
+            
+            l1 = draw.bitmap('img/l1.png');
+            l1.x = 700;
+            l1.y = groundY -240;
+            background.addChild(l1);
+            
             
         }
         
@@ -91,19 +123,31 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
-            coralbush2.x = coralbush2.x - 2;
-            if(coralbush2.x < -200) {
-                coralbush2.x = canvasWidth;
+            
+            l3.x = l3.x -0.86;
+            if(l3.x < -1920) {
+                l3.x = 0;
             }
             
+            
+            l2.x = l2.x - 1.4;
+            if(l2.x < -1920) {
+                l2.x = 0;
+        }
+        
+                l1.x = l1.x -2.2;
+                if(l1.x <  -1920){
+                    l1.x = canvasWidth;
+                }
+            
             // TODO 5: Part 2 - Parallax
-            for (var i = 0; i < buildings.length; i++){
-                buildings[i].x = buildings[i].x - 1;
-                if(buildings[i].x < -200){
-                    buildings[i].x = canvasWidth;
-                }
+            //for (var i = 0; i < buildings.length; i++){
+               // buildings[i].x = buildings[i].x - 1;
+                //if(buildings[i].x < -200){
+                   // buildings[i].x = canvasWidth;
+                //}
           
-                }
+               // }
             }
             
             
